@@ -35,10 +35,8 @@ public class EmployeeMethods {
         for (int i = 0; i < employee.length; i++) {
             System.out.println(employee[i].getLastName() + " " + employee[i].getName() + " " + employee[i].getMiddleName());
         }
-
         return null;
     }
-
 
 }
 

@@ -49,17 +49,6 @@ public class Main
             System.out.println(Array2[i]);
         }
 
-
-
-
-
-
-
-
-
-
-
     }
-
 
 }
