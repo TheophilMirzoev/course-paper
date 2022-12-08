@@ -19,9 +19,7 @@ public class Employee {
     @Override
     public String toString() {
         return "id " + id + " " + name + " " + middleName + " " + lastName + " зарплата " + salary + " департамент " + department;
-
     }
-
 
     public Employee(String lastName, String name, String middleName, int salary, int department) {
       this.name = name;

@@ -3,14 +3,23 @@ public class EmployeeMethods {
     public int countingAllSalaries(Employee[] employee) {
         int sum = 0;
         for (int i = 0; i < employee.length; i++) {
-          sum += employee[i].getSalary();
+            if (employee[i].getSalary() != 0) {
+                sum += employee[i].getSalary();
+            } else {
+                employee[i++].getSalary();
+            }
         }
         return sum;
     }
     public static int getMin(Employee[] employee){
        int min = employee[0].getSalary();
         for (int i = 0; i < employee.length; i++) {
-            if (employee[i].getSalary() < min){
+            if ((employee[i].getSalary() != 0)) {
+                if (employee[i].getSalary() < min) {
+                    min = employee[i].getSalary();
+                }
+            } else {
+                employee[i++].getSalary();
                 min = employee[i].getSalary();
             }
         } return min;
@@ -18,27 +27,48 @@ public class EmployeeMethods {
     public static int getMax(Employee[] employee){
         int max = employee[0].getSalary();
         for (int i = 0; i < employee.length; i++) {
-            if (employee[i].getSalary() > max){
-                max = employee[i].getSalary();
+            if (employee[i].getSalary() != 0) {
+                if (employee[i].getSalary() > max){
+                    max = employee[i].getSalary();}
+            } else if (employee[i].getSalary() == 0) {
+                    if (employee[i++].getSalary() > max){
+                        max = employee[i].getSalary();
+                }
             }
         } return max;
     }
     public int countingAverageSalary(Employee[] employee) {
         int sum = 0;
         for (int i = 0; i < employee.length; i++) {
-            sum += employee[i].getSalary();
+            if (employee[i].getSalary() != 0) {
+                sum += employee[i].getSalary();
+            } else if (employee[i].getSalary() == 0) {
+                sum += employee[i++].getSalary();
+            }
         }
         int average = sum / employee.length;
         return average;
     }
     public static String outputOfValues(Employee[] employee) {
         for (int i = 0; i < employee.length; i++) {
-            System.out.println(employee[i].getLastName() + " " + employee[i].getName() + " " + employee[i].getMiddleName());
+            if (employee[i].getName() != null) {
+                System.out.println(employee[i].getName());
+            }  else if  (employee[i].getName() == null) {
+                employee[i++].getName();
+            }
+            if (employee[i].getMiddleName() != null) {
+                System.out.println(employee[i].getMiddleName());
+            } else if (employee[i].getMiddleName() == null) {
+                employee[i++].getMiddleName();
+            }
+            if (employee[i].getLastName() != null) {
+                System.out.println(employee[i].getLastName());
+            } else if (employee[i].getLastName() == null) {
+                employee[i++].getLastName();
+            }
         }
-
         return null;
     }
-
 
 }
 
